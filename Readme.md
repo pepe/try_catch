@@ -11,7 +11,7 @@ as possible.
 
 ## It must by API (REST, JSON)
 
-- [ ] It must be secured by basic auth
+- [X] It must be secured by basic auth
 - [ ] It must contain User mode ­ with different roles (admin, user, guest)
 - [ ] It must limit access to given part of API depend of User role
 - [ ] Admin has access to everything
