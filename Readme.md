@@ -4,7 +4,7 @@ This service is being developed as part of the sample solution for
 http://trycatch.us assesment.
 
 I am using more exotic technologies, partly for myself to try them, but
-mostly that I can show you, it is not programmed by Stack Overflow.
+  mostly that I can show you, it is not programmed by Stack Overflow.
 
 Also bear in mind, I will try hard to have as minimal solution to this problem
 as possible.
@@ -23,9 +23,9 @@ as possible.
 
 ## Technologies
 
-- [Roda](http://roda.jeremyevans.net) as router and authenticator
-- [Sequel](http://sequel.jeremyevans.net) as ORM
-- [RSpec](http://rspec.info) and [Capybara](http://jnicklas.github.io/capybara/) for testing purposes
+- [Roda][1] as router and authenticator
+- [Sequel][2] as ORM
+- [RSpec][3] and [Rack-test][4] for testing purposes
 
 ## Domain specification
 
@@ -54,7 +54,9 @@ Every domain object have unique identifier *id* Integer
   - belongs to one *tree*
 
 
-## domain API
+## API
+
+Every request is authenticated by basic http authentication
 
 Trees needs admin role for any change. Cannot be deleted
 - */trees*
@@ -73,3 +75,18 @@ main outline.
   - *POST /tree/:tree_id* - creates a new position of the tree
   - *PATCH /:id* - changes the position information
   - *DELETE /:id* - deletes the position
+
+## Development
+
+```
+> git clone https//github.com/pepe/try_catch
+> cd try_catch
+> bundle install
+..................
+> bundle exec rspec # to run specs
+```
+
+[1]: http://roda.jeremyevans.net
+[2]: http://sequel.jeremyevans.net
+[3]: http://rspec.info
+[4]: https://github.com/brynary/rack-test
