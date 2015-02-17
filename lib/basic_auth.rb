@@ -3,18 +3,34 @@ require 'rack'
 module BasicAuth
   # Instance methods, which got included in to Roda app
   module InstanceMethods
-    def check_perm
-      return if authorized?
+    ROLES = %w(guest user admin).freeze
+    def check_perm(*roles)
+      roles.empty? && roles = ROLES
+      return if authorized?(roles)
       response.headers['WWW-Authenticate'] = 'Basic realm="Trees sanctuary"'
       request.halt 401
     end
 
-    def authorized?
-      @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-      return unless @auth.provided? && @auth.basic? && @auth.credentials
+    def authorized?(roles)
+      return unless auth_has_credentials?
       creds = @auth.credentials
+      # FIXME: with specialized auth store vvv
+      # Domain::Store.auth(creds, roles)
       user_store = Domain::Store.model(:user)
-      user_store.where(call_name: creds.first, password: creds.last).first
+      user = user_store.where(call_name: creds.first,
+                              password: creds.last).first
+      return unless user
+      roles.include?(user.role)
+    end
+
+    private
+
+    def auth
+      @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    end
+
+    def auth_has_credentials?
+      auth.provided? && auth.basic? && auth.credentials
     end
   end
 end

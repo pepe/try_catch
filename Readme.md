@@ -62,7 +62,6 @@ Trees needs admin role for any change. Cannot be deleted
 - */trees*
   - *GET* - returns list of all the trees
   - *GET /:id* - returns one tree
-  - *GET /:id/positions* - returns list of all the positions of the tree
   - *POST* - creates a new tree
   - *PATCH /:id* - changes the tree information
 
