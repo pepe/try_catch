@@ -29,7 +29,7 @@ as possible.
 
 ## Domain specification
 
-Every domain object have unique identifier *id*.
+Every domain object have unique identifier *id* Integer
 
 **Private:**
 
@@ -50,6 +50,7 @@ Every domain object have unique identifier *id*.
   - *longitude* String
   - *latitude* String
   - *living* Boolean
+  - *creator_id* Integer
   - belongs to one *tree*
 
 
