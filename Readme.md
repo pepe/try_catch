@@ -12,8 +12,8 @@ as possible.
 ## It must by API (REST, JSON)
 
 - [X] It must be secured by basic auth
-- [ ] It must contain User mode ­ with different roles (admin, user, guest)
-- [ ] It must limit access to given part of API depend of User role
+- [X] It must contain User model ­ with different roles (admin, user, guest)
+- [X] It must limit access to given part of API depend of User role
 - [ ] Admin has access to everything
 - [ ] User can read all, create all, but update and deleted only his records
 - [ ] Guest has only read access
