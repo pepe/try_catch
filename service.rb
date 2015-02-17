@@ -3,8 +3,10 @@ require_relative 'lib/basic_auth'
 
 # Main service module
 module Service
+  # Main API class
   class API < Roda
     plugin :halt
+    plugin :json
     plugin BasicAuth
 
     route do |r|
@@ -17,7 +19,7 @@ module Service
         check_perm
 
         r.get do
-          response.status = 200
+          Domain::Store.model(:tree).all.map(&:values)
         end
       end
     end
