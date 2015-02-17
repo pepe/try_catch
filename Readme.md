@@ -26,6 +26,10 @@ as possible.
 - [Roda][1] as router and authenticator
 - [Sequel][2] as ORM
 - [RSpec][3] and [Rack-test][4] for testing purposes
+- SQLite in memory adapter.
+```
+brew install sqlite
+```
 
 ## Domain specification
 
