@@ -1,21 +1,10 @@
-require_relative '../../api_spec_helper'
+require_relative '../../tree_api_spec_helper'
 
 RSpec.describe 'Service::API::Tree' do
   it 'exists' do
     expect(Service::API::Tree).to be_a Class
   end
 
-  before :all do
-    users = Domain::Store.model(:user)
-    users.create(call_name: 'user', password: 'only', role: 'user')
-    users.create(call_name: 'pepe', password: 'theonly', role: 'admin')
-    trees = Domain::Store.model(:tree)
-    { 'birch' => 'betula', 'oak' => 'quercus' }.each_pair do |common, latin|
-      trees.create(common_name: common,
-                   latin_name: latin,
-                   positionable: true)
-    end
-  end
 
   it 'is protected' do
     get '/trees'
