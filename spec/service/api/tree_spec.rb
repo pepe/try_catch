@@ -58,8 +58,8 @@ RSpec.describe 'Service::API::Tree' do
       before do
         authorize 'pepe', 'theonly'
         post '/trees', common_name: 'beech',
-          latin_name: 'fagus',
-          positionable: true
+                       latin_name: 'fagus',
+                       positionable: true
       end
 
       it 'can create tree' do

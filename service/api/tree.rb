@@ -1,6 +1,6 @@
 module Service
-  # Tree API class
   module API
+    # Tree API class
     class Tree < Roda
       plugin :halt
       plugin :json
@@ -45,4 +45,3 @@ module Service
     end
   end
 end
-
