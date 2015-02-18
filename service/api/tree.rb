@@ -1,22 +1,14 @@
-require 'roda'
-require_relative 'lib/basic_auth'
-
-# Main service module
 module Service
-  # Main API class
-  class API < Roda
-    plugin :halt
-    plugin :json
-    plugin :all_verbs
-    plugin BasicAuth
+  # Tree API class
+  module API
+    class Tree < Roda
+      plugin :halt
+      plugin :json
+      plugin :all_verbs
 
-    route do |r|
-      # This route could be used as the ping endpoint
-      r.root do
-        response.status = 200
-      end
+      plugin BasicAuth
 
-      r.on 'trees' do
+      route do |r|
         check_perm
 
         r.get do
@@ -53,3 +45,4 @@ module Service
     end
   end
 end
+

@@ -9,5 +9,5 @@ RSpec.configure do |config|
 end
 
 def app
-  Service::API
+  Service::API::Root
 end
