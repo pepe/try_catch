@@ -51,8 +51,8 @@ Every domain object have unique identifier *id* Integer
   - have many *positions*
 
 - *Position*
-  - *longitude* String
-  - *latitude* String
+  - *longitude* Float
+  - *latitude* Float
   - *living* Boolean
   - *creator_id* Integer
   - belongs to one *tree*
