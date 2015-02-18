@@ -10,7 +10,11 @@ module Service
         end
 
         r.on 'trees' do
-          r.run API::Tree
+          r.run Tree
+        end
+
+        r.on 'positions' do
+          r.run Position
         end
       end
     end

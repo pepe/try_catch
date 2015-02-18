@@ -5,7 +5,6 @@ RSpec.describe 'Service::API::Tree' do
     expect(Service::API::Tree).to be_a Class
   end
 
-
   it 'is protected' do
     get '/trees'
     expect(last_response.status).to eq 401
