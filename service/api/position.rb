@@ -11,8 +11,26 @@ module Service
       route do |r|
         check_perm
 
-        r.is do
-          r.halt(200)
+        r.get do
+          r.is do
+            Domain::Store.model(:position).all.map(&:values)
+          end
+
+          r.is ':id' do |id|
+            Domain::Store.model(:position)[id].values
+          end
+        end
+
+        r.post do
+          r.is do
+            Domain::Store.model(:position).create(
+              longitude: r['longitude'],
+              latitude: r['latitude'],
+              living: true,
+              creator_id: auth_user.id,
+              tree_id: r['tree_id'])
+            r.halt(201)
+          end
         end
       end
     end

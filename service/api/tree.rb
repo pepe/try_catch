@@ -17,7 +17,7 @@ module Service
           end
 
           r.is ':id' do |id|
-            Domain::Store.model(:tree).find(id).values
+            Domain::Store.model(:tree)[id].values
           end
         end
 
@@ -36,7 +36,7 @@ module Service
           check_perm('admin')
 
           r.is ':id' do |id|
-            tree = Domain::Store.model(:tree).find(id)
+            tree = Domain::Store.model(:tree)[id]
             tree.update_fields(r, ['positionable'])
             r.halt(200)
           end

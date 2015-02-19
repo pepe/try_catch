@@ -36,7 +36,7 @@ RSpec.describe 'Service::API::Tree' do
     end
 
     it 'cannot change tree' do
-      post '/trees'
+      put '/trees'
       expect(last_response.status).to eq 401
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe 'Service::API::Tree' do
       end
 
       after do
-        Domain::Tree.last.destroy
+        Domain::Store.model(:tree).last.destroy
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe 'Service::API::Tree' do
       end
 
       after do
-        Domain::Tree.find(id: 1).update(positionable: true)
+        Domain::Store.model(:tree)[1].update(positionable: true)
       end
     end
   end

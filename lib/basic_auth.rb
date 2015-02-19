@@ -17,10 +17,14 @@ module BasicAuth
       # FIXME: with specialized auth store vvv
       # Domain::Store.auth(creds, roles)
       user_store = Domain::Store.model(:user)
-      user = user_store.where(call_name: creds.first,
-                              password: creds.last).first
-      return unless user
-      roles.include?(user.role)
+      @user = user_store.where(call_name: creds.first,
+                               password: creds.last).first
+      return unless @user
+      roles.include?(@user.role)
+    end
+
+    def auth_user
+      @user
     end
 
     private
