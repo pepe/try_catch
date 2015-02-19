@@ -55,7 +55,7 @@ RSpec.describe 'Service::API::Position' do
         position = Domain::Store.model(:position)[3]
         position && position.destroy
 
-        Domain::Store.model(:position)[2].update(living: true)
+        Domain::Store.model(:position)[1].update(living: true)
       end
     end
   end
