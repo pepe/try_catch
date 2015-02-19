@@ -3,12 +3,6 @@
 This service is being developed as part of the sample solution for
 http://trycatch.us assesment.
 
-I am using more exotic technologies, partly for myself to try them, but
-  mostly that I can show you, it is not programmed by Stack Overflow.
-
-Also bear in mind, I will try hard to have as minimal solution to this problem
-as possible.
-
 ## It must by API (REST, JSON)
 
 - [X] It must be secured by basic auth
@@ -87,7 +81,24 @@ main outline.
 > bundle install
 ..................
 > bundle exec rspec # to run specs
+> bundle rackup # to run http server
 ```
+
+## Motivations to this solution
+
+I am using more exotic technologies, partly for myself to try them, but
+mostly that I can show you, it is not programmed by Stack Overflow. And to show,
+that I am able to think outside of the box.
+
+In its final version I guess it has everything what was in the assesment TODO
+list. But there are few rought parts, which would be refactored in the real
+world. Mainly Domain::Store is just a sham for some more advanced mapper/command
+type thing.
+
+Bear in mind, I was trying hard to have as minimal solution to this problem
+as possible.
+
+I am looking forward for what you think about it.
 
 [1]: http://roda.jeremyevans.net
 [2]: http://sequel.jeremyevans.net
