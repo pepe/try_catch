@@ -21,4 +21,3 @@ RSpec.configure do |config|
     Store.model(:tree).each(&:delete)
   end
 end
-

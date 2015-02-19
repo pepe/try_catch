@@ -27,7 +27,7 @@ module Service
               longitude: r['longitude'],
               latitude: r['latitude'],
               living: true,
-              creator_id: auth_user.id,
+              creator_id: user.id,
               tree_id: r['tree_id'])
             r.halt(201)
           end
@@ -36,4 +36,3 @@ module Service
     end
   end
 end
-

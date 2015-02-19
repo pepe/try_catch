@@ -4,7 +4,7 @@ RSpec.configure do |config|
   include Domain
 
   config.before(:all) do
-    [[40.0, 50.0 , 1, 1], [50.0, 60.0, 2, 2]].each do |attrs|
+    [[40.0, 50.0, 1, 1], [50.0, 60.0, 2, 2]].each do |attrs|
       Domain::Position.create(longitude: attrs[0],
                               latitude: attrs[1],
                               living: true,

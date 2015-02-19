@@ -4,6 +4,8 @@ module BasicAuth
   # Instance methods, which got included in to Roda app
   module InstanceMethods
     ROLES = %w(guest user admin).freeze
+
+    attr_reader :user
     def check_perm(*roles)
       roles.empty? && roles = ROLES
       return if authorized?(roles)
@@ -21,10 +23,6 @@ module BasicAuth
                                password: creds.last).first
       return unless @user
       roles.include?(@user.role)
-    end
-
-    def auth_user
-      @user
     end
 
     private
