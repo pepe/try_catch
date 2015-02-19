@@ -21,6 +21,8 @@ module Service
           end
         end
 
+        check_perm('admin', 'user')
+
         r.post do
           r.is do
             Domain::Store.model(:position).create(
@@ -30,6 +32,19 @@ module Service
               creator_id: user.id,
               tree_id: r['tree_id'])
             r.halt(201)
+          end
+        end
+
+        r.put do
+          r.is ':id' do |id|
+            position = Domain::Store.model(:position)[id]
+            # FIXME: with in store logic
+            if user.admin? || position.creator == user
+              position.update_fields(r, ['living'])
+              r.halt(200)
+            else
+              r.halt(401)
+            end
           end
         end
       end

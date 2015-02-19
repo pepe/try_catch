@@ -22,4 +22,14 @@ RSpec.describe 'Domain::User' do
       expect(user.role).to eq 'admin'
     end
   end
+
+  describe 'with role' do
+    let(:user) do
+      Domain::User.new(call_name: 'pepe', password: 'theonly', role: 'admin')
+    end
+
+    it 'returns if is admin' do
+      expect(user.admin?).to be_truthy
+    end
+  end
 end

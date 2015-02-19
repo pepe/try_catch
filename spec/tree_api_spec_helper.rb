@@ -8,6 +8,7 @@ RSpec.configure do |config|
     users = Store.model(:user)
     users.create(call_name: 'user', password: 'only', role: 'user')
     users.create(call_name: 'pepe', password: 'theonly', role: 'admin')
+    users.create(call_name: 'guest', password: 'lost', role: 'guest')
     trees = Store.model(:tree)
     { 'birch' => 'betula', 'oak' => 'quercus' }.each_pair do |common, latin|
       trees.create(common_name: common,
